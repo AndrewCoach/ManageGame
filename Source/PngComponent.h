@@ -22,7 +22,6 @@ public:
 	PngComponent(const juce::String absoluteImagePath);
 	~PngComponent() override;
 
-	void paint(juce::Graphics&) override;
 	void resized() override;
 
 	/// <summary>
@@ -30,6 +29,12 @@ public:
 	/// </summary>
 	/// <param name="absoluteImagePath">The absolute image path.</param>
 	void changeImage(const juce::String absoluteImagePath);
+
+	/// <summary>
+	/// Gets the image path.
+	/// </summary>
+	/// <returns>String of absolute image path</returns>
+	const juce::String getImagePath();
 
 private:
 	juce::File pFile;

@@ -12,7 +12,7 @@
 #include "PngComponent.h"
 
 //==============================================================================
-PngComponent::PngComponent(const juce::String absoluteImagePath)
+PngComponent::PngComponent(const juce::String absoluteImagePath) : imagePath(absoluteImagePath)
 {
 	// Questionable
 	this->setSize(this->getLocalBounds().getX(), this->getLocalBounds().getY());
@@ -31,6 +31,7 @@ PngComponent::~PngComponent()
 
 void PngComponent::changeImage(const juce::String absoluteImagePath)
 {
+	this->imagePath = absoluteImagePath;
 	this->pFile = juce::File(absoluteImagePath);
 	this->pStream.reset(new juce::FileInputStream(pFile));
 	this->pImage = this->pImageFormat.decodeImage(*this->pStream);
@@ -38,8 +39,9 @@ void PngComponent::changeImage(const juce::String absoluteImagePath)
 	this->repaint();
 }
 
-void PngComponent::paint(juce::Graphics& g)
+const juce::String PngComponent::getImagePath()
 {
+	return this->imagePath;
 }
 
 void PngComponent::resized()

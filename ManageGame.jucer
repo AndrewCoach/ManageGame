@@ -4,14 +4,18 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="sbgOKw" name="ManageGame">
     <GROUP id="{BB36C379-CD47-69FE-F6B8-115FE629A39D}" name="Source">
+      <FILE id="mfw1tm" name="BehaviorComponent.cpp" compile="1" resource="0"
+            file="Source/BehaviorComponent.cpp"/>
+      <FILE id="V5XANu" name="BehaviorComponent.h" compile="0" resource="0"
+            file="Source/BehaviorComponent.h"/>
       <FILE id="CPJR7z" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="Dsz96B" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="tEp7Wn" name="PngComponent.h" compile="0" resource="0" file="Source/PngComponent.h"/>
+      <FILE id="g7qTfP" name="PngComponent.cpp" compile="1" resource="0"
+            file="Source/PngComponent.cpp"/>
       <FILE id="KtnQ0g" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
     </GROUP>
-    <FILE id="g7qTfP" name="PngComponent.cpp" compile="1" resource="0"
-          file="Source/PngComponent.cpp"/>
-    <FILE id="tEp7Wn" name="PngComponent.h" compile="0" resource="0" file="Source/PngComponent.h"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
   <EXPORTFORMATS>
