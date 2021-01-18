@@ -9,6 +9,9 @@
       <FILE id="KtnQ0g" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
     </GROUP>
+    <FILE id="g7qTfP" name="PngComponent.cpp" compile="1" resource="0"
+          file="Source/PngComponent.cpp"/>
+    <FILE id="tEp7Wn" name="PngComponent.h" compile="0" resource="0" file="Source/PngComponent.h"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
   <EXPORTFORMATS>
