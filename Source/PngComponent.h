@@ -37,6 +37,7 @@ public:
 	const juce::String getImagePath();
 
 private:
+	juce::String imagePath;
 	juce::File pFile;
 	std::unique_ptr<juce::FileInputStream> pStream;
 	juce::PNGImageFormat pImageFormat;

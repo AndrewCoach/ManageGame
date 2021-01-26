@@ -12,10 +12,15 @@
 #include "BehaviorComponent.h"
 
 //==============================================================================
-BehaviorComponent::BehaviorComponent() : imageVector(std::vector<PngComponent>()), cycleCount(1), vectorPosition(0)
+BehaviorComponent::BehaviorComponent(const juce::String absoluteImagePath)
+	: imageVector(std::vector<std::unique_ptr<PngComponent>>()),
+	cycleCount(1),
+	vectorPosition(0)
 {
-	this->imageVector.push_back(PngComponent("E:\\GITHUB repositories\\ManageGame\\ManageGame\\ukol.png"));
-	this->addAndMakeVisible(*imageVector.begin());
+	std::unique_ptr<PngComponent> ptr;
+	ptr.reset(new PngComponent(absoluteImagePath));
+	this->imageVector.push_back(std::move(ptr));
+	this->addAndMakeVisible(this->imageVector.begin()->get());
 }
 
 BehaviorComponent::~BehaviorComponent()
@@ -24,16 +29,20 @@ BehaviorComponent::~BehaviorComponent()
 
 void BehaviorComponent::addImage(const juce::String absoluteImagePath)
 {
-	this->imageVector.push_back(PngComponent(absoluteImagePath));
+	std::unique_ptr<PngComponent> ptr;
+	ptr.reset(new PngComponent(absoluteImagePath));
+	this->imageVector.push_back(std::move(ptr));
+	this->addAndMakeVisible(this->imageVector.at(this->imageVector.size() - 1).get());
 }
 
 void BehaviorComponent::removeImage(const juce::String absoluteImagePath)
 {
 	for (auto it = this->imageVector.begin(); it != this->imageVector.end(); ++it)
 	{
-		if (it->getImagePath() == absoluteImagePath)
+		if (it->get()->getImagePath() == absoluteImagePath)
 		{
 			this->imageVector.erase(it);
+			this->childrenChanged();
 			break;
 		}
 	}
@@ -41,7 +50,8 @@ void BehaviorComponent::removeImage(const juce::String absoluteImagePath)
 
 void BehaviorComponent::changeCycleCount(const unsigned int imageCount)
 {
-	this->cycleCount = imageCount;
+	if (imageCount > 0 && imageCount <= this->imageVector.size())
+		this->cycleCount = imageCount;
 }
 
 void BehaviorComponent::changeCycleSpeed(const unsigned int miliseconds)
@@ -51,7 +61,7 @@ void BehaviorComponent::changeCycleSpeed(const unsigned int miliseconds)
 void BehaviorComponent::displayImage()
 {
 	size_t maxPosition = this->imageVector.size() - 1;
-	if (this->vectorPosition >= maxPosition || maxPosition < 0)
+	if (this->vectorPosition >= maxPosition || this->vectorPosition >= this->cycleCount - 1 || maxPosition < 0)
 	{
 		this->vectorPosition = 0;
 	}
@@ -59,13 +69,23 @@ void BehaviorComponent::displayImage()
 	{
 		++this->vectorPosition;
 	}
+
+	// cycle for setting all children to invisible
+	for (auto it = this->imageVector.begin(); it != this->imageVector.end(); ++it)
+	{
+		it->get()->setVisible(false);
+		it->get()->repaint();
+	}
 }
 
 void BehaviorComponent::paint(juce::Graphics& g)
 {
+	this->imageVector.at(this->vectorPosition).get()->setVisible(true);
+	this->imageVector.at(this->vectorPosition).get()->setBounds(this->getLocalBounds());
 }
 
 void BehaviorComponent::resized()
 {
-	this->imageVector.at(this->vectorPosition).setBounds(this->getLocalBounds());
+	this->imageVector.at(this->vectorPosition).get()->setVisible(true);
+	this->imageVector.at(this->vectorPosition).get()->setBounds(this->getLocalBounds());
 }

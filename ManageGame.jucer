@@ -4,6 +4,20 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="sbgOKw" name="ManageGame">
     <GROUP id="{BB36C379-CD47-69FE-F6B8-115FE629A39D}" name="Source">
+      <FILE id="SRt3qI" name="Calculation.cpp" compile="1" resource="0" file="Source/Calculation.cpp"/>
+      <FILE id="nYMqF1" name="Calculation.h" compile="0" resource="0" file="Source/Calculation.h"/>
+      <FILE id="BXfiOS" name="MyLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/MyLookAndFeel.cpp"/>
+      <FILE id="Kd6jyS" name="MyLookAndFeel.h" compile="0" resource="0" file="Source/MyLookAndFeel.h"/>
+      <FILE id="GxyD3f" name="ProgressBarsComponent.cpp" compile="1" resource="0"
+            file="Source/ProgressBarsComponent.cpp"/>
+      <FILE id="CPAmXz" name="ProgressBarsComponent.h" compile="0" resource="0"
+            file="Source/ProgressBarsComponent.h"/>
+      <FILE id="iUN6sL" name="ButtonImage.cpp" compile="1" resource="0" file="Source/ButtonImage.cpp"/>
+      <FILE id="JtNwzX" name="ButtonImage.h" compile="0" resource="0" file="Source/ButtonImage.h"/>
+      <FILE id="XgWcNB" name="TabComponent.cpp" compile="1" resource="0"
+            file="Source/TabComponent.cpp"/>
+      <FILE id="oYWdm1" name="TabComponent.h" compile="0" resource="0" file="Source/TabComponent.h"/>
       <FILE id="mfw1tm" name="BehaviorComponent.cpp" compile="1" resource="0"
             file="Source/BehaviorComponent.cpp"/>
       <FILE id="V5XANu" name="BehaviorComponent.h" compile="0" resource="0"
@@ -13,6 +27,13 @@
       <FILE id="tEp7Wn" name="PngComponent.h" compile="0" resource="0" file="Source/PngComponent.h"/>
       <FILE id="g7qTfP" name="PngComponent.cpp" compile="1" resource="0"
             file="Source/PngComponent.cpp"/>
+      <FILE id="LWCRHa" name="PersonalityComponent.cpp" compile="1" resource="0"
+            file="Source/PersonalityComponent.cpp"/>
+      <FILE id="n7K0cZ" name="PersonalityComponent.h" compile="0" resource="0"
+            file="Source/PersonalityComponent.h"/>
+      <FILE id="VpOXtB" name="GridComponent.cpp" compile="1" resource="0"
+            file="Source/GridComponent.cpp"/>
+      <FILE id="HNdLIZ" name="GridComponent.h" compile="0" resource="0" file="Source/GridComponent.h"/>
       <FILE id="KtnQ0g" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
     </GROUP>

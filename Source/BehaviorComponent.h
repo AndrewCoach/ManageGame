@@ -18,7 +18,7 @@
 class BehaviorComponent : public juce::Component
 {
 public:
-	BehaviorComponent();
+	BehaviorComponent(juce::String absoluteImagePath);
 	~BehaviorComponent() override;
 
 	/// <summary>
@@ -34,7 +34,7 @@ public:
 	void removeImage(const juce::String absoluteImagePath);
 
 	/// <summary>
-	/// Changes the amount of PngComponents to loop through. Most common is 2 or 3.
+	/// Changes the amount of PngComponents to loop through. Should start at 1 for static image and not go below 1. Most common is 2 or 3.
 	/// If the supplied number is higher than the amount of images contained, nothing will happen.
 	/// </summary>
 	/// <param name="imageCount">The image count. Default value is 1.</param>
@@ -47,7 +47,7 @@ public:
 	void changeCycleSpeed(const unsigned int miliseconds);
 
 	/// <summary>
-	/// Is called externally every X amount of miliseconds, and will move to the next correct image and display it.
+	/// Is supposed to be called externally every X amount of miliseconds, and will move to the next correct image and display it.
 	/// </summary>
 	/// <param name="miliseconds">The miliseconds.</param>
 	void displayImage();
@@ -56,7 +56,7 @@ public:
 	void resized() override;
 
 private:
-	std::vector<PngComponent> imageVector;
+	std::vector<std::unique_ptr<PngComponent>> imageVector;
 	unsigned int vectorPosition;
 	unsigned int cycleCount;
 
